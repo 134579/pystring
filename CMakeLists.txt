@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 project(pystring CXX)
 
-set(BUILD_SHARED_LIBS YES)
-
-add_library(pystring
+add_library(pystring STATIC
     pystring.cpp
     pystring.h
 )

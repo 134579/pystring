@@ -7,6 +7,7 @@
 #define INCLUDED_PYSTRING_H
 
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace pystring
@@ -260,7 +261,7 @@ namespace pystring
     /// test string beginning at that position. With optional end, stop comparing string at that
     /// position
     ///
-    bool startswith( const std::string & str, const std::string & prefix, int start = 0, int end = MAX_32BIT_INT );
+    bool startswith( std::string_view str, std::string_view prefix, int start = 0, int end = MAX_32BIT_INT );
 
     //////////////////////////////////////////////////////////////////////////////////////////////
     /// @brief Return a copy of the string with leading and trailing characters removed. If chars is "",

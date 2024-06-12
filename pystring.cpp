@@ -395,15 +395,15 @@ const std::string colon = ":";
          * -1 on error, 0 if not found and 1 if found.
          */
         
-        int _string_tailmatch(const std::string & self, const std::string & substr,
+        int _string_tailmatch(std::string_view self, std::string_view substr,
                               Py_ssize_t start, Py_ssize_t end,
                               int direction)
         {
             Py_ssize_t len = (Py_ssize_t) self.size();
             Py_ssize_t slen = (Py_ssize_t) substr.size();
             
-            const char* sub = substr.c_str();
-            const char* str = self.c_str();
+            const char* sub = substr.data();
+            const char* str = self.data();
             
             ADJUST_INDICES(start, end, len);
             
@@ -435,7 +435,7 @@ const std::string colon = ":";
     }
     
     
-    bool startswith( const std::string & str, const std::string & prefix, int start, int end )
+    bool startswith( std::string_view str, std::string_view prefix, int start, int end )
     {
         int result = _string_tailmatch(str, prefix,
                                        (Py_ssize_t) start, (Py_ssize_t) end, -1);
